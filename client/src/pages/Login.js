@@ -77,15 +77,57 @@
 // export default Login;
 
 
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+// import { Link } from 'react-router-dom';
+import { LOGIN } from '../utils/mutations';
+import Auth from '../utils/auth';
 import { Button, Checkbox, Form, Input } from 'antd';
+
+const Login = () => {
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error }] = useMutation(LOGIN);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    const loginForm = event.currentTarget;
+
+    if (loginForm.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    try {
+      const { data } = await login({
+        variables: { ...formState }
+      });
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+    }
+    
+  };
+
+  
+
+
+
 const onFinish = (values) => {
   console.log('Success:', values);
 };
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
-};
-const App = () => (
-  <Form
+}
+return (
+// const Login = () => (
+  <Form 
     name="basic"
     labelCol={{
       span: 8,
@@ -103,15 +145,18 @@ const App = () => (
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
     autoComplete="off"
+    onSubmit={handleFormSubmit}
   >
     <h2 style={{margin: '0 0 10% 62%'}}>Login</h2>
     <Form.Item
-      label="Username"
-      name="username"
+      label="Email"
+      name="email"
+      onChange={handleChange}
+      value={formState.email}
       rules={[
         {
           required: true,
-          message: 'Please input your username!',
+          message: 'Please input your email!',
         },
       ]}
     >
@@ -121,6 +166,8 @@ const App = () => (
     <Form.Item
       label="Password"
       name="password"
+      onChange={handleChange}
+      value={formState.password}
       rules={[
         {
           required: true,
@@ -154,4 +201,5 @@ const App = () => (
     </Form.Item>
   </Form>
 );
-export default App;
+};
+export default Login;

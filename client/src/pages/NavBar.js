@@ -32,10 +32,23 @@
 // };
 
 // export default NavBar;
+
+
+
 import { CalendarOutlined, TeamOutlined, ShoppingCartOutlined, PhoneOutlined } from '@ant-design/icons';
 import { Input, Menu, Image,} from 'antd';
 import { useState } from 'react';
-import Logo from "../images/owlsch.png"
+import Logo from "../images/owlsch.png";
+import Auth from "../utils/auth";
+
+const hideUserConnect = () => {
+  if (Auth.login === true) {
+    document.querySelectorAll('loginBtn').style.display = 'none';
+    document.querySelectorAll('signupBtn').style.display = 'none';
+  } else {
+    document.querySelectorAll('logoutBtn').style = 'none';
+  }
+}
 
 const items = [
   {
@@ -116,7 +129,7 @@ const items = [
   },
   {
     label: (
-      <a href="/login" target="_blank" rel="noopener noreferrer">
+      <a href="/login" id="loginBtn" target="_blank" rel="noopener noreferrer">
         Login
       </a>
     ),
@@ -124,11 +137,17 @@ const items = [
   },
   {
     label: (
-      <a href="/signup" target="_blank" rel="noopener noreferrer">
+      <a href="/signup" id="signupBtn" target="_blank" rel="noopener noreferrer">
         Signup
       </a>
     ),
     key: 'signup',
+  },
+  {
+    label: (
+      <button id="logoutBtn" onClick={Auth.logout}>Logout</button>
+    ),
+    key: 'logout',
   }
   
 ]
@@ -136,6 +155,7 @@ const items = [
 {/* <Input placeholder="Basic usage" /> */}
 const onSearch = (value) => console.log(value);
 const NavBar = () => {
+  
   const [current, setCurrent] = useState('');
   const onClick = (e) => {
     // console.log('click ', e);
@@ -143,4 +163,5 @@ const NavBar = () => {
   };
   return <Menu style={{ width: '100%', justifyContent: 'center' }} onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
+hideUserConnect();
 export default NavBar;
