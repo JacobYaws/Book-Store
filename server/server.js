@@ -28,11 +28,11 @@ app.use(express.json());
 
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, '../../client/build')));
+    app.use(express.static(path.join(__dirname, '/client/build')));
   }
 
 //adding the static assets
-app.use('/images', express.static(path.join(__dirname, '../../client/src/images')));
+app.use('/images', express.static(path.join(__dirname, '/client/src/images')));
 
 // Uncomment the following code once you have built the queries and mutations in the client folder
 
@@ -41,7 +41,7 @@ app.use('/images', express.static(path.join(__dirname, '../../client/src/images'
 // });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 
