@@ -36,25 +36,6 @@ export const client = new ApolloClient({
 });
 
 function App() {
-//   // const [activePage, setActivePage] = useState("Home");
-
-//   // const displayPage = () => {
-//   //   // need to adjust for signup/login
-//   //   switch (activePage) {
-//   //     case "About":
-//   //       return <About />;
-//   //     case "Contact":
-//   //       return <Contact />;
-//   //     case "Events":
-//   //       return <Events />;
-//   //     case "Shop":
-//   //       return <Shop />;
-//   //     default:
-//   //       return <Home />;
-//   //   }
-//   };
-
-
   return (
     <ApolloProvider client={client}>
     <div className="App">
