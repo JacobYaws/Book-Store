@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
   }
 
 //adding the static assets
-app.use('/images', express.static(path.join(__dirname, '../client/images')));
+app.use('/images', express.static(path.join(__dirname, '../client/src/images')));
 
 // Uncomment the following code once you have built the queries and mutations in the client folder
 
