@@ -46,28 +46,28 @@ function App() {
             <Nav />
             <Routes>
               <Route 
-                path="/" 
-                element={<Home />} 
+                exact path="/" 
+                component={Home} 
               />
               <Route 
-                path="/login" 
-                element={<Login />} 
+                exact path="/login" 
+                component={Login} 
               />
               <Route 
-                path="/signup" 
-                element={<Signup />} 
+                exact path="/signup" 
+                component={Signup} 
               />
               <Route 
-                path="/events" 
-                element={<Events />} 
+                exact path="/events" 
+                component={Events} 
               />
               <Route 
-                path="/aboutus" 
-                element={<AboutUs />} 
+                exact path="/aboutus" 
+                component={AboutUs} 
               />
               <Route
-                path="/contact" 
-                element={<Contact />} 
+                exact path="/contact" 
+                component={Contact} 
               />
               {/* <Route
                 path="*" 
