@@ -69,10 +69,6 @@ function App() {
                 exact path="/contact" 
                 component={Contact} 
               />
-              {/* <Route
-                path="*" 
-                element={<Contact />} 
-              /> */}
             </Routes>
           </StoreProvider>
         </div>
