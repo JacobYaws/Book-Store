@@ -7,13 +7,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import React, { useState } from "react";
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Contact from "./pages/Contact";
-// import Events from "./pages/Events";
-// import Shop from "./pages/Shop";
-// import NavBar from './pages/NavBar';
-import { Home, About, Contact, Events, Shop, NavBar, Login, Signup} from './pages';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Events from "./pages/Events";
+import Shop from "./pages/Shop";
+import NavBar from './pages/NavBar';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+// import { Home, About, Contact, Events, Shop, NavBar, Login, Signup} from './pages';
 
 // Creates a link to graphql at the /graphql endpoint.
 const httpLink = createHttpLink({
