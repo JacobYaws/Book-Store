@@ -4,7 +4,7 @@
   "description": "As Ecommerce shoppers, we want to purchase and review books. We would like to be able to read and write reviews on books intended for purchase. We would like to be able to select books to be added to a wishlist or to a cart for purchase using stripe",
   "engines": {
     "node": "16.18.1",
-    "npm": "8.12.1"
+    "npm": "8.19.2"
   },
   "scripts": {
     "start": "node server/server.js",
