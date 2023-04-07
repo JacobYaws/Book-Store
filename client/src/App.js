@@ -41,11 +41,11 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route exact path="/" component={Home} />
+          {/* <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/events" element={<Events />} />
+          <Route path="/events" element={<Events />} /> */}
        </Routes>
       {/* <nav>
         <ul>
