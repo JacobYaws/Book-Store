@@ -41,3 +41,18 @@ function Shop(props)
 }
 
 export default Shop;
+
+// import { Card } from 'antd';
+// const { Meta } = Card;
+// const Shop = () => (
+//   <Card
+//     hoverable
+//     style={{
+//       width: 240,
+//     }}
+//     cover={<img alt="logo" src="./images/owlsch.png" />}
+//   >
+//     <Meta title="Page logo" description="Page logo" />
+//   </Card>
+// );
+// export default Shop;
