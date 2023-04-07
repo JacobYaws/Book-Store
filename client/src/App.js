@@ -1,4 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import React, { useState } from "react";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -6,6 +13,27 @@ import Contact from "./pages/Contact";
 import Events from "./pages/Events";
 import Shop from "./pages/Shop";
 import NavBar from './pages/NavBar';
+
+// Creates a link to graphql at the /graphql endpoint.
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+// Exports a new ApolloClient that will include the graphql link and cache for localstorage.
+export const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
 //   // const [activePage, setActivePage] = useState("Home");
@@ -26,7 +54,9 @@ function App() {
 //   //   }
 //   };
 
+
   return (
+    <ApolloProvider client={client}>
     <div className="App">
       <NavBar />
       <Routes>
@@ -57,6 +87,7 @@ function App() {
       </nav>
       {displayPage()} */}
     </div>
+    </ApolloProvider>
   );
 }
 
