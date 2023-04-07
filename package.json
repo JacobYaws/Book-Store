@@ -2,6 +2,9 @@
   "name": "book-store",
   "version": "1.0.0",
   "description": "As Ecommerce shoppers, we want to purchase and review books. We would like to be able to read and write reviews on books intended for purchase. We would like to be able to select books to be added to a wishlist or to a cart for purchase using stripe",
+  "engines": {
+    "node": "16.18.1"
+  },
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
