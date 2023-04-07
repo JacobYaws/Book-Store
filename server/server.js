@@ -33,11 +33,11 @@ if (process.env.NODE_ENV === 'production') {
 app.use('/images', express.static(path.join(__dirname, '../client/src/images')));
 
 // Uncomment the following code once you have built the queries and mutations in the client folder
-/* 
-app.get('/', (req, res) => {
+
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-*/
+
 
 
 // need to add apolloserver, middleware and static assets once made and graphQL
