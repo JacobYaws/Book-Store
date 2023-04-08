@@ -87,6 +87,7 @@ import { Button, Checkbox, Form, Input, Alert } from 'antd';
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
+  const [validated] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -144,6 +145,7 @@ return (
     }}
     // onFinish={onFinish}
     // onFinishFailed={onFinishFailed}
+    noValidate validated={validated}
     autoComplete="off"
     onSubmit={handleFormSubmit}
   >
@@ -195,7 +197,7 @@ return (
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit" onClick={handleFormSubmit}>
+      <Button type="submit" onClick={handleFormSubmit}>
         Submit
       </Button>
     </Form.Item>
