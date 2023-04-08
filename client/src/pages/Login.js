@@ -82,7 +82,7 @@ import { useMutation } from '@apollo/client';
 // import { Link } from 'react-router-dom';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Checkbox, Form, Input, Alert } from 'antd';
 
 const Login = () => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -119,12 +119,12 @@ const Login = () => {
 
 
 
-const onFinish = (values) => {
-  console.log('Success:', values);
-};
-const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
-}
+// const onFinish = (values) => {
+//   console.log('Success:', values);
+// };
+// const onFinishFailed = (errorInfo) => {
+//   console.log('Failed:', errorInfo);
+// }
 return (
 // const Login = () => (
   <Form 
@@ -142,8 +142,8 @@ return (
     initialValues={{
       remember: true,
     }}
-    onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
+    // onFinish={onFinish}
+    // onFinishFailed={onFinishFailed}
     autoComplete="off"
     onSubmit={handleFormSubmit}
   >
