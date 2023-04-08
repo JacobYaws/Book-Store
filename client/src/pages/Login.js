@@ -85,14 +85,14 @@ import Auth from '../utils/auth';
 import { Button, Checkbox, Form, Input, Alert } from 'antd';
 
 const Login = () => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [userFormData, setuserFormData] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN);
   const [validated] = useState(false);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormState({
-      ...formState,
+    setuserFormData({
+      ...userFormData,
       [name]: value,
     });
   }
@@ -107,7 +107,7 @@ const Login = () => {
     }
     try {
       const { data } = await login({
-        variables: { ...formState }
+        variables: { ...userFormData }
       });
       Auth.login(data.login.token);
     } catch (err) {
@@ -143,7 +143,7 @@ return (
       label="Email"
       name="email"
       onChange={handleInputChange}
-      value={formState.email}
+      value={userFormData.email}
       rules={[
         {
           required: true,
@@ -158,7 +158,7 @@ return (
       label="Password"
       name="password"
       onChange={handleInputChange}
-      value={formState.password}
+      value={userFormData.password}
       rules={[
         {
           required: true,
@@ -187,7 +187,7 @@ return (
       }}
     >
       {/* <Button type="primary" htmlType="submit" onClick={handleFormSubmit}> */}
-        <Button disabled={!(formState.email && formState.password)}>
+        <Button disabled={!(userFormData.email && userFormData.password)}>
         Submit
       </Button>
     </Form.Item>
