@@ -34,6 +34,13 @@
   "homepage": "https://github.com/helenhosse/book-store#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.10.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "apollo-client": "^2.6.10",
+    "bcryptjs": "^2.4.3",
+    "graphql": "^15.5.2"
   }
- 
 }
