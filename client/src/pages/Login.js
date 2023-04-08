@@ -186,8 +186,7 @@ return (
         span: 16,
       }}
     >
-      {/* <Button type="primary" htmlType="submit" onClick={handleFormSubmit}> */}
-        <Button disabled={!(userFormData.email && userFormData.password)}>
+      <Button type="primary" htmlType="submit" onClick={handleFormSubmit}>
         Submit
       </Button>
     </Form.Item>
