@@ -88,7 +88,7 @@ function Signup(props) {
                 </Form.Group>
 
                 <br />
-                <Button variant="success btn-block button-class" type="submit">
+                <Button variant="success btn-block button-class" type="submit" onClick={handleFormSubmit}>
                     Signup
                 </Button>
                 

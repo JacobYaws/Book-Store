@@ -195,7 +195,7 @@ return (
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit">
+      <Button type="primary" htmlType="submit" onClick={handleFormSubmit}>
         Submit
       </Button>
     </Form.Item>
