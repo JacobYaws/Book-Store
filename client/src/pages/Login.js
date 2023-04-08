@@ -99,9 +99,9 @@ const Login = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const loginForm = event.currentTarget;
+    const form = event.currentTarget;
 
-    if (loginForm.checkValidity() === false) {
+    if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
     }
@@ -128,18 +128,7 @@ const Login = () => {
 // }
 return (
 // const Login = () => (
-  <Form 
-    name="basic"
-    labelCol={{
-      span: 8,
-    }}
-    wrapperCol={{
-      span: 16,
-    }}
-    style={{
-      maxWidth: 600,
-      margin: '2% 30% 0 30%'
-    }}
+  <Form name="basic" labelCol={{span: 8,}} wrapperCol={{span: 16,}} style={{maxWidth: 600, margin: '2% 30% 0 30%'}}
     initialValues={{
       remember: true,
     }}
@@ -197,7 +186,8 @@ return (
         span: 16,
       }}
     >
-      <Button type="primary" htmlType="submit" onClick={handleFormSubmit}>
+      {/* <Button type="primary" htmlType="submit" onClick={handleFormSubmit}> */}
+        <Button disabled={!(formState.email && formState.password)}>
         Submit
       </Button>
     </Form.Item>
