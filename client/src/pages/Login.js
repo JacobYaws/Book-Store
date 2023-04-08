@@ -89,7 +89,7 @@ const Login = () => {
   const [login, { error }] = useMutation(LOGIN);
   const [validated] = useState(false);
 
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -142,7 +142,7 @@ return (
     <Form.Item
       label="Email"
       name="email"
-      onChange={handleChange}
+      onChange={handleInputChange}
       value={formState.email}
       rules={[
         {
@@ -157,7 +157,7 @@ return (
     <Form.Item
       label="Password"
       name="password"
-      onChange={handleChange}
+      onChange={handleInputChange}
       value={formState.password}
       rules={[
         {
