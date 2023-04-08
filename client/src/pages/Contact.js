@@ -44,7 +44,7 @@ const ContactFormPage = () => (
       rules={[
         {
           required: true,
-          message: 'Please input your password!',
+          message: 'Please input your email!',
         },
       ]}
     >
@@ -57,7 +57,7 @@ const ContactFormPage = () => (
       rules={[
         {
           required: true,
-          message: 'Please input your password!',
+          message: 'Add a subject!',
         },
       ]}
     >
@@ -69,7 +69,7 @@ const ContactFormPage = () => (
       rules={[
         {
           required: true,
-          message: 'Please input your password!',
+          message: 'Add a message!',
         },
       ]}
     >
